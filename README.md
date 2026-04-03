@@ -8,25 +8,25 @@
 >
 > For licensing information, visit https://velobpa.com/licensing or contact licensing@velobpa.com.
 
-This n8n community node enables seamless integration with Compound Protocol, a leading decentralized finance (DeFi) platform for earning interest and borrowing cryptocurrency. With 5 comprehensive resources, it provides full access to account management, token market operations, governance participation, market analytics, and transaction monitoring capabilities.
+An n8n community node for interacting with the Compound Protocol DeFi platform. This node provides 5 resources with comprehensive operations for account management, token analysis, market data, governance participation, and price tracking across the Compound ecosystem.
 
 ![n8n Community Node](https://img.shields.io/badge/n8n-Community%20Node-blue)
 ![License](https://img.shields.io/badge/license-BSL--1.1-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)
 ![DeFi](https://img.shields.io/badge/DeFi-Protocol-green)
-![Ethereum](https://img.shields.io/badge/Ethereum-Blockchain-lightblue)
-![Compound](https://img.shields.io/badge/Compound-V2%2FV3-purple)
+![Ethereum](https://img.shields.io/badge/Ethereum-Compatible-blue)
+![Web3](https://img.shields.io/badge/Web3-Integration-purple)
 
 ## Features
 
-- **Account Management** - Access account balances, supply positions, borrow positions, and liquidation health
-- **CToken Operations** - Interact with Compound tokens including supply, redeem, borrow, and repay operations
-- **Market Analytics** - Retrieve comprehensive market data, interest rates, and historical performance metrics
-- **Governance Integration** - Participate in Compound governance with proposal voting and delegation features
-- **Transaction Monitoring** - Track and analyze transaction history with detailed event logging
-- **Real-time Data** - Access live market rates, APY calculations, and protocol statistics
-- **Multi-Network Support** - Compatible with Ethereum mainnet and supported testnets
-- **Comprehensive Error Handling** - Robust error management with detailed debugging information
+- **Account Management** - Track lending positions, borrowing activities, and account health metrics
+- **CToken Operations** - Interact with Compound tokens for supply, borrow, and redeem operations
+- **Market Analytics** - Access comprehensive market data including interest rates and total value locked
+- **Governance Integration** - Participate in Compound governance through proposal tracking and voting
+- **Real-time Price Data** - Monitor asset prices and market movements across supported tokens
+- **Transaction History** - Retrieve detailed transaction logs and historical account activity
+- **Risk Assessment** - Calculate collateral ratios and liquidation risks for lending positions
+- **Yield Tracking** - Monitor interest earned and borrowing costs over time
 
 ## Installation
 
@@ -61,10 +61,9 @@ n8n start
 
 | Field | Description | Required |
 |-------|-------------|----------|
-| API Key | Your Compound Protocol API key for accessing market data | Yes |
-| Network | Target network (mainnet, goerli, sepolia) | Yes |
-| RPC URL | Custom RPC endpoint URL (optional, uses default if not provided) | No |
-| Wallet Address | Your wallet address for account-specific operations | No |
+| API Key | Compound Protocol API key for enhanced rate limits | Yes |
+| Environment | Network environment (mainnet, testnet) | Yes |
+| RPC URL | Custom Ethereum RPC endpoint (optional) | No |
 
 ## Resources & Operations
 
@@ -72,95 +71,91 @@ n8n start
 
 | Operation | Description |
 |-----------|-------------|
-| Get Account | Retrieve account information including balances and positions |
-| Get Supply Positions | List all active supply positions for an account |
-| Get Borrow Positions | List all active borrow positions for an account |
-| Get Account Health | Check liquidation risk and health factor |
-| Get Transaction History | Retrieve account transaction history |
+| Get Account Details | Retrieve account summary including supplied and borrowed assets |
+| Get Account History | Fetch transaction history for a specific account |
+| Get Collateral Status | Check collateral factors and account health metrics |
+| Calculate Liquidation Risk | Assess liquidation risk based on current positions |
+| Get Earned Interest | Track total interest earned across all supplied assets |
+| Get Borrowing Costs | Calculate total interest paid on borrowed assets |
 
 ### 2. CToken
 
 | Operation | Description |
 |-----------|-------------|
-| Get Token Info | Retrieve cToken contract information and metadata |
-| Get Exchange Rate | Get current exchange rate between cToken and underlying asset |
-| Get Supply Rate | Retrieve current supply APY for the cToken |
-| Get Borrow Rate | Retrieve current borrow APY for the cToken |
-| Get Total Supply | Get total supply of the cToken |
-| Get Total Borrows | Get total outstanding borrows for the cToken |
-| Get Cash Balance | Retrieve available cash in the cToken market |
+| Get Token Info | Retrieve basic information about a specific cToken |
+| Get Exchange Rate | Fetch current exchange rate between cToken and underlying asset |
+| Get Supply Rate | Get current supply interest rate for the token |
+| Get Borrow Rate | Get current borrowing interest rate for the token |
+| Get Total Supply | Retrieve total supply of the cToken |
+| Get Total Borrows | Get total borrowed amount of the underlying asset |
+| Get Reserve Factor | Fetch the reserve factor for the cToken |
+| Get Collateral Factor | Get the collateral factor used for borrowing calculations |
 
-### 3. MarketHistory
+### 3. Market History
 
 | Operation | Description |
 |-----------|-------------|
-| Get Historical Rates | Retrieve historical interest rates for markets |
-| Get Volume History | Get trading volume history for specified time periods |
-| Get Price History | Retrieve historical price data for underlying assets |
-| Get Market Events | Get historical market events and significant changes |
-| Get APY Trends | Analyze APY trends over time for supply and borrow rates |
+| Get Historical Rates | Retrieve historical interest rates for specified time periods |
+| Get Volume History | Fetch historical trading and lending volumes |
+| Get TVL History | Track total value locked over time |
+| Get Utilization History | Monitor asset utilization rates across time periods |
+| Get Market Events | Retrieve significant market events and updates |
+| Get Liquidation History | Track liquidation events and volumes |
 
 ### 4. Governance
 
 | Operation | Description |
 |-----------|-------------|
-| Get Proposals | List governance proposals with status and details |
+| Get Proposals | List all governance proposals with current status |
 | Get Proposal Details | Retrieve detailed information about a specific proposal |
-| Get Voting History | View voting history for proposals |
-| Get Delegate Info | Retrieve information about governance delegates |
-| Get COMP Distribution | Check COMP token distribution and rewards |
+| Get Voting History | Fetch voting records for proposals |
+| Get Voter Details | Get information about specific voters and their voting power |
+| Get Delegation Info | Track COMP token delegations |
+| Get Governance Stats | Retrieve overall governance participation metrics |
 
-### 5. Transaction
+### 5. PriceData
 
 | Operation | Description |
 |-----------|-------------|
-| Get Transaction | Retrieve detailed transaction information by hash |
-| Get Transaction Events | List all events emitted by a transaction |
-| Get Block Transactions | Get all Compound transactions in a specific block |
-| Get Recent Transactions | Retrieve recent transactions across all markets |
-| Get Failed Transactions | List failed transactions with error details |
+| Get Current Price | Fetch real-time price for any supported asset |
+| Get Historical Prices | Retrieve price history for specified time ranges |
+| Get Price Feed | Access Compound's price oracle data |
+| Get Market Cap Data | Retrieve market capitalization information |
+| Get Volume Data | Fetch trading volume across different time periods |
+| Compare Asset Prices | Compare prices across multiple assets simultaneously |
 
 ## Usage Examples
 
 ```javascript
-// Get account supply positions
+// Get account lending positions
 {
-  "resource": "account",
-  "operation": "getSupplyPositions",
-  "accountAddress": "0x1234567890123456789012345678901234567890",
-  "includeMetadata": true
+  "account": "0x742e1e71b4e34fd0a738e1b33f87dc3e2a2b0e8c",
+  "includeHistory": true,
+  "calculateHealth": true
 }
-```
 
-```javascript
-// Retrieve current market rates for USDC
+// Monitor cToken exchange rates
 {
-  "resource": "ctoken",
-  "operation": "getSupplyRate",
-  "tokenSymbol": "cUSDC",
-  "formatOutput": "percentage"
+  "cToken": "cDAI",
+  "includeBorrowRate": true,
+  "includeSupplyRate": true,
+  "includeUtilization": true
 }
-```
 
-```javascript
-// Get historical APY data for the last 30 days
+// Track governance proposal
 {
-  "resource": "marketHistory",
-  "operation": "getHistoricalRates",
-  "market": "cDAI",
-  "period": "30d",
-  "granularity": "1d"
-}
-```
-
-```javascript
-// Check active governance proposals
-{
-  "resource": "governance",
-  "operation": "getProposals",
-  "status": "active",
-  "limit": 10,
+  "proposalId": "125",
+  "includeVotes": true,
   "includeVotingPower": true
+}
+
+// Get historical market data
+{
+  "asset": "USDC",
+  "startDate": "2024-01-01",
+  "endDate": "2024-01-31",
+  "interval": "daily",
+  "metrics": ["supplyRate", "borrowRate", "totalSupply"]
 }
 ```
 
@@ -168,12 +163,12 @@ n8n start
 
 | Error | Description | Solution |
 |-------|-------------|----------|
-| Invalid API Key | API key is missing or invalid | Verify API key in credentials and ensure it's active |
-| Network Connection Failed | Unable to connect to Compound Protocol | Check network settings and RPC URL configuration |
-| Invalid Address Format | Wallet address format is incorrect | Ensure address is valid Ethereum format (0x...) |
-| Rate Limit Exceeded | Too many API requests in short period | Implement delays between requests or upgrade API plan |
-| Market Not Found | Specified cToken market doesn't exist | Verify market symbol and check supported markets list |
-| Insufficient Data | Historical data not available for requested period | Adjust date range or check data availability |
+| Invalid Address | Ethereum address format is incorrect | Ensure address is a valid 42-character hex string starting with 0x |
+| Token Not Found | Specified cToken does not exist in Compound | Verify token symbol against supported Compound markets |
+| Rate Limit Exceeded | API request limit has been reached | Implement request throttling or upgrade API plan |
+| Network Error | Connection to Compound protocol failed | Check network connectivity and RPC endpoint availability |
+| Insufficient Data | Requested historical data is not available | Adjust date range or check if market existed during specified period |
+| Governance Proposal Not Found | Invalid proposal ID provided | Verify proposal exists using the list proposals operation |
 
 ## Development
 
@@ -219,4 +214,4 @@ Contributions are welcome! Please ensure:
 
 - **Issues**: [GitHub Issues](https://github.com/Velocity-BPA/n8n-nodes-compound-protocol/issues)
 - **Compound Documentation**: [docs.compound.finance](https://docs.compound.finance)
-- **DeFi Community**: [compound.finance/governance](https://compound.finance/governance)
+- **DeFi Community**: [compound.community](https://compound.community)
