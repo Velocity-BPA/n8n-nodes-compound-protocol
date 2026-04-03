@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+.pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.test
+
+# Testing
+coverage/
+*.coverage
+.nyc_output
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Compiled JavaScript files (except configs)
+*.js
+!jest.config.js
+!gulpfile.js
+!.eslintrc.js
+!webpack.config.js
+
+# Maps
+*.js.map
+
+# Temporary folders
+tmp/
+temp/
