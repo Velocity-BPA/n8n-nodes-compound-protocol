@@ -1,7 +1,4 @@
-import {
-	ICredentialType,
-	INodeProperties,
-} from 'n8n-workflow';
+import { ICredentialType, INodeProperties } from 'n8n-workflow';
 
 export class CompoundProtocolApi implements ICredentialType {
 	name = 'compoundProtocolApi';
@@ -12,19 +9,17 @@ export class CompoundProtocolApi implements ICredentialType {
 			displayName: 'API Key',
 			name: 'apiKey',
 			type: 'string',
-			typeOptions: {
-				password: true,
-			},
+			typeOptions: { password: true },
 			default: '',
 			required: true,
-			description: 'API key for Compound Protocol authentication',
+			description: 'API key obtained from Compound developer portal',
 		},
 		{
 			displayName: 'API Base URL',
 			name: 'baseUrl',
 			type: 'string',
 			default: 'https://api.compound.finance/api/v2',
-			description: 'Base URL for the Compound Protocol API',
+			description: 'Base URL for Compound Protocol API',
 		},
 	];
 }
