@@ -2,7 +2,7 @@
   "name": "@velocity-bpa/n8n-nodes-compound-protocol",
   "version": "1.0.0",
   "description": "n8n community node for Compound Protocol - Manage accounts, cToken markets, market history, governance, and price data",
-  "license": "bsl-catalog",
+  "license": "SEE LICENSE IN LICENSE.md",
   "homepage": "https://n8n.io",
   "author": {
     "name": "Velocity BPA",
@@ -57,7 +57,7 @@
     "eslint-plugin-n8n-nodes-base": "^1.16.1",
     "gulp": "^4.0.2",
     "jest": "^29.7.0",
-    "n8n-workflow": "*",
+    "n8n-workflow": "1.57.0",
     "prettier": "^3.3.2",
     "ts-jest": "^29.1.2",
     "typescript": "^5.5.3"
